@@ -5,8 +5,8 @@
   "main": "src/main.js",
   "scripts": {
     "start": "node src/main",
-    "test": "jest",
-    "test-jenkins": "jest --reporters=default --reporters=jest-junit",
+    "test": "mocha --exit",
+    "test-jenkins": "mocha --reporter mocha-junit-reporter --reporter-options mochaFile=./coverage/test.results.xml --exit",
     "coverage-jenkins": "jest --reporters=default --reporters=jest-junit --coverage --coverageReporters=text --coverageReporters=html --coverageDirectory=./coverage/",
     "lint": "eslint src/**/*.js -f checkstyle -o coverage/eslint-result.xml"
   },
@@ -27,6 +27,8 @@
     "jest": "^27.5.1",
     "jest-junit": "^13.0.0",
     "prettier": "^2.5.1",
-    "supertest": "^6.2.2"
+    "mocha": "^7.1.1",
+    "supertest": "^4.0.2",
+    "mocha-junit-reporter":"1.23.3"
   }
 }
